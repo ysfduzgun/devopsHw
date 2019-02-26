@@ -9,7 +9,7 @@
   unarchive: src=/tmp/wordpress.tar.gz dest=/var/www/ copy=no
   become: yes
 
-- name: Copy sample config file
+- name: Move sample config file
   command: mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php creates=/var/www/wordpress/wp-config.php
   become: yes
 

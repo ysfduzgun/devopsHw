@@ -16,7 +16,7 @@ dbUname=$(terraform output dbUname)
 echo $ubuntuIp >> ../ansible/hosts.inf
 
 # install python
-ssh -i ../keywptest.pem ubuntu@$ubuntuIp \
+ssh -i ../ansible/keywptest.pem ubuntu@$ubuntuIp \
 'sudo apt update && sudo apt install -y python-minimal'
 
 # write db infos
