@@ -30,20 +30,20 @@ License GNU GPL v3
 
 #### Lets start
 
-##### s1- first clone project
+#### s1- first clone project
 ```sh
 git clone https://github.com/ysfduzgun/devopsHw
 ```
-##### s2- Edit credential file - (Aws AIM)
+#### s2- Edit credential file - (Aws AIM)
 ```sh
 devopsHw/terraform/credential
 ```
-##### s3- Copy your pem and change perm. - (AWS ec2Key)
+#### s3- Copy your pem and change perm. - (AWS ec2Key)
 ```sh
 cp your_key.epm devopsHw/ansible/your_key.pem
 chmod 400 devopsHw/ansible/your_key.pem
 ```
-##### s4- Terraform stage
+#### s4- Terraform stage
 ```sh
 cd devopsHw/terraform/
 terraform init
@@ -57,9 +57,9 @@ ping $(terraform output ubuntuIp)
 ```
 when server answer to request we can go next step.
 
-we must have ssh fingerprint ask problem
+we must solve ssh fingerprint ask problem
 
-connect to server with ssh
+- connect to server with ssh
 ```sh
 cd devopsHw/ansible
 ssh -i your_key.pem ubuntu@ip
@@ -68,25 +68,25 @@ ECDSA key fingerprint is SHA256:xyzxyzxyzxyzxyzxyzxyzxyzxyz.
 Are you sure you want to continue connecting (yes/no)? yes
 exit
 ```
-or disable check
+- or disable check
 ```sh
 touch ~/.ssh/config
 echo "Host *" > ~/.ssh/config
 echo "    StrictHostKeyChecking no" >> ~/.ssh/config
 ```
 
-##### s5- preInstall wp environment and get some variables for ansible.
+#### s5- preInstall wp environment and get some variables for ansible.
 ```sh
 cd devopsHw/terraform
 ./preAnsible.sh
 ```
 
-##### s6- install all wp environment and configure them
+#### s6- install all wp environment and configure them
 ```sh
 cd devopsHw/ansible/
 ansible-playbook playbook.yml -i hosts.inf --private-key=./your_key.pem
 ```
-##### sFinal-
+#### sFinal-
 lets request ip:6868 port, loadbalancer should have redirect to server:80
 ```sh
 cat devopsHw/terraform/elbIp.txt
@@ -96,7 +96,7 @@ cat devopsHw/terraform/elbIp.txt
 
 [logo2]: https://raw.githubusercontent.com/ysfduzgun/devopsHw/master/pictures/final.png "final"
 
-##### delete everything
+#### delete everything
 ```sh
 cd devopsHw/terraform
 terraform destroy
