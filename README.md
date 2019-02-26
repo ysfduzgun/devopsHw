@@ -28,8 +28,6 @@ License GNU GPL v3
 
 [logo]: https://raw.githubusercontent.com/ysfduzgun/devopsHw/master/pictures/network.png "network"
 
-#### Lets start
-
 #### s1- first clone project
 ```sh
 git clone https://github.com/ysfduzgun/devopsHw
