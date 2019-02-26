@@ -1,0 +1,12 @@
+---
+- name: set mysql variables
+  set_fact:
+    wp_mysql_db: wpmysql
+    wp_mysql_user: horse
+    wp_mysql_password: hi_horse
+    wp_mysql_host: 192.168.131.11
+
+- name: Install mysql client
+  apt:
+    name: mysql-client
+    state: present

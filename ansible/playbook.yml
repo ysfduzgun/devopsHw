@@ -1,0 +1,17 @@
+--- # wordpress yaml file
+- hosts: instances
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+
+  tasks:
+  - name: install python
+    raw: test -e /usr/bin/python
+
+  roles:
+    - nginx
+    - mysql
+    - php
+    - wordpress

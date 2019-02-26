@@ -1,0 +1,15 @@
+---
+- name: Install php with extensions
+  apt: name={{ item }} state=present
+  become: yes
+  with_items:
+    - php-curl
+    - php-gd
+    - php-mbstring
+    - php-xml
+    - php-xmlrpc
+    - php-cli
+    - hhvm
+    - php-mysql
+    - php-fpm
+    - php
